@@ -11,7 +11,7 @@ Directores:
 
 Alumno:
 
--   NICOLAU, Jorge
+-   NICOLAU, Jorge Enrique
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -27,6 +27,7 @@ Este repositorio contiene la implementación del Trabajo Final de Máster en Ing
 ---
 
 [BITÁCORA](LOG.md)
+[Plan de Tesis aprobado por el Consejo Académico](./plan_tesis/nicolau-plan-aprobado.pdf)
 
 ## 📋 Resumen del Proyecto
 
