@@ -25,8 +25,8 @@ Este repositorio contiene la implementación del Trabajo Final de Máster en Ing
 
 ---
 
-[BITÁCORA](LOG.md)
-[Plan de Tesis aprobado por el Consejo Académico](./plan_tesis/nicolau-plan-aprobado.pdf)
+[BITÁCORA](LOG.md) | 
+[PLAN DE TESIS](./plan_tesis/nicolau-plan-aprobado.pdf) | [LICENCIA](LICENSE.md)
 
 ## 📋 Resumen del Proyecto
 
@@ -80,7 +80,7 @@ Ejecución de la lógica de vuelo y percepción.
 
 1. **Clonar el repositorio:**
 ```bash
-   git clone [https://github.com/georgsmeinung/lm-drone.git](https://github.com/georgsmeinung/lm-drone.git)
+   git clone https://github.com/georgsmeinung/lm-drone.git
    cd lm-drone
 ```
 
@@ -89,6 +89,10 @@ Ejecución de la lógica de vuelo y percepción.
 
 3. **Iniciar el Drone Server (MCP):**
 * Lanzar el MCP Server para interactuar con AirSim.
+
+4. **Interactuar con el Drone mediante:**
+* Prompts para controlar el drone
+* Scripts de navegación autónoma
 
 ## 📊 Evaluación y Métricas
 
