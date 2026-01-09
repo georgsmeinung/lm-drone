@@ -14,7 +14,9 @@ Alumno:
 -   NICOLAU, Jorge
 
 ---
-[BITÁCORA](LOG.MD)
+
+[BITÁCORA](LOG.md)
+
 ---
   
 ### PoC Python Script:
