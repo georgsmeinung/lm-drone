@@ -5,14 +5,14 @@
 
 **2026-0108**
 ---
-* Created MCP Server for Drone Control via Prompts
-* Created Repository: https://github.com/georgsmeinung/lm-drone 
+* Creado servidor MCP para control del drone via prompts
+* Creado este repositorio de proyecto: https://github.com/georgsmeinung/lm-drone 
 * Instalado LM Studio con el modelo `qwen/qwen3-vl-4b one` para correr modelos de lenguaje localmente y disponibilizarlos con una [API compatible con OpenAI](https://lmstudio.ai/docs/developer/openai-compat)
 * Subido video ["Airsim Plugin on UE 5.5 controlled through MCP Server PoC" video"](https://youtu.be/lNdmPKZekkk) a YouTube  mostrando el control del drone a través de un server MCP muy básico disponible en `./python_poc/drone_mcp_server.py` con comunicación STDIO
 
 **2025-1202**
 ---
-* Instalación de text-gen-webui-3.19 para ejecutar modelos de lenguaje localmente
+* Instalación de [text-gen-webui-3.19](https://github.com/oobabooga/text-generation-webui/releases/tag/v3.19) para ejecutar modelos de lenguaje localmente.
 
 **2025-1203**
 --
