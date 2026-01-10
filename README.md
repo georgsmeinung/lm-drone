@@ -12,7 +12,12 @@ Alumno:
 
 -   NICOLAU, Jorge Enrique
 
+Proyecto: 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Activity](https://img.shields.io/badge/Log-2026--0109-teal)](LOG.md) 
+[![Plan](https://img.shields.io/badge/Plan-Aprobado_2025--0829-drakgray)](./plan_tesis/nicolau-plan-aprobado.pdf)
+
+Plataforma: 
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![UnrealEngine](https://img.shields.io/badge/Simulator-Unreal_Engine_5.5-green)](https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-5-5-documentation?application_version=5.5)
 [![AirSim](https://img.shields.io/badge/Plug_in-Cosys_AirSim-critical)](https://github.com/Cosys-Lab/Cosys-AirSim/)
@@ -24,9 +29,6 @@ Este repositorio contiene la implementación del Trabajo Final de Máster en Ing
 **Director:** Rodrigo Del Rosso | **Codirector:** Ezequiel Omar Nuske
 
 ---
-
-[BITÁCORA](LOG.md) | 
-[PLAN DE TESIS](./plan_tesis/nicolau-plan-aprobado.pdf) | [LICENCIA](LICENSE.md)
 
 ## 📋 Resumen del Proyecto
 
