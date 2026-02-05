@@ -1,0 +1,24 @@
+{
+  "SeeDocsAt": "https://cosys-lab.github.io/settings/",
+  "SettingsVersion": 2.0,
+  "LocalHostIp": "127.0.0.1",
+  "ApiServerPort": 41451,
+  "SimMode": "Multirotor",
+  "Vehicles": {
+    "PX4": {
+      "VehicleType": "PX4Multirotor",
+      "UseSerial": false,
+      "LockStep": true,
+      "UseTcp": true,
+      "TcpPort": 4560,
+      "QgcHostIp": "127.0.0.1",
+      "QgcPort": 14550,
+      "Parameters": {
+        "NAV_RCL_ACT": 0,
+        "NAV_DLL_ACT": 0,
+        "COM_OBL_ACT": 1
+      }
+    }
+  },
+  "RecordUIVisible": false
+}
