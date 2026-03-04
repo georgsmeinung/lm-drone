@@ -50,7 +50,7 @@ Estas técnicas te permiten mantener la salida del modelo extremadamente control
   "RecordUIVisible": false
 }
 ```
-* Prueba de captura (en pantalla) en simultaneo con navegación controlada por API
+* Prueba de captura de logs de telemetría (en pantalla) en simultaneo con navegación controlada por API
 
 **2026-0204**
 ---
