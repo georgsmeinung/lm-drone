@@ -2,10 +2,43 @@ import json
 import logging
 import sys
 import os
+import datetime
+import numpy as np
+import cosysairsim as airsim
+from mcp.server.fastmcp import FastMCP
+from airsim_functions.orbit import OrbitNavigator
 
 # Set up logging to a file for debugging, since stdout is used for MCP messages
 # and LM studio treats stderr as errors.
 log_file_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mcp_drone.log")
+
+def clean_old_logs(file_path, days=2):
+    if not os.path.exists(file_path):
+        return
+    try:
+        cutoff_date = datetime.datetime.now() - datetime.timedelta(days=days)
+        with open(file_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+            
+        keep_from_idx = len(lines)
+        for i, line in enumerate(lines):
+            try:
+                date_str = line[:23]
+                log_date = datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S,%f")
+                if log_date >= cutoff_date:
+                    keep_from_idx = i
+                    break
+            except ValueError:
+                continue
+                
+        if keep_from_idx > 0:
+            with open(file_path, 'w', encoding='utf-8') as f:
+                f.writelines(lines[keep_from_idx:])
+    except Exception:
+        pass
+
+clean_old_logs(log_file_path, days=2)
+
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -39,11 +72,6 @@ class StreamToLogger(object):
         pass
 
 sys.stdout = StreamToLogger(logger, logging.DEBUG)
-
-import numpy as np
-import cosysairsim as airsim
-from mcp.server.fastmcp import FastMCP
-from airsim_functions.orbit import OrbitNavigator
 
 # Configuration
 TIMEOUT = 1200  # 20 mins
@@ -125,6 +153,7 @@ class DroneController:
         return f"Moved to ({x}, {y}, {z}) at velocity {velocity}"
 
     def move_to_position(self, x: float, y: float, z: float, velocity: float) -> str:
+        z *= -1 # Airsim uses NED coordinates, so we need to negate z
         return self.run_in_drone_thread(self._move_to_position_sync, x, y, z, velocity)
 
     def _move_on_path_sync(self, path_points: list[dict], velocity: float) -> str:
