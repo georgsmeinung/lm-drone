@@ -23,8 +23,9 @@ $env:ANTHROPIC_BASE_URL="http://localhost:1234/v1"
 $env:ANTHROPIC_API_KEY="lm-studio"
 claude
 ```
-
 Si Unreal Engine empieza a dar lags en el render, revisar el uso de VRAM en la barra inferior de LM Studio. Si supera **1.8 GB**, bajar la ventana de contexto a **4.096**.
+
+* Modelo Qwen2.5‑Coder‑1.5B‑Instruct funcionando correctamente con MCP server de AirSim
 
 **2026-0310**
 ---
