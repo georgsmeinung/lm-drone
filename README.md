@@ -89,7 +89,8 @@ Ejecución de la lógica de vuelo y percepción.
 * Lanzar el entorno de virtual desde Unreal Engine editor en modo play.
 
 3. **Probar conexión al Drone mediante:**
-* Scripts de navegación autónoma `./python_poc/my_hello_drone.py` 
+* Scripts de navegación autónoma en `./python_poc/my_hello_drone.py` 
+* O iniciando el Servidor MCP para control con LLMs (Model Context Protocol) en `./airsim-mcp/mcp_server.py` (ver [README del Servidor MCP](./airsim-mcp/README.md)).
 
 ## 📊 Evaluación y Métricas
 
