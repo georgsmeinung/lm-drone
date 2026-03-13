@@ -649,3 +649,72 @@
 2026-03-12 22:41:34,535 - INFO - Processing request of type ListToolsRequest
 2026-03-12 22:41:34,535 - DEBUG - Dispatching request of type ListToolsRequest
 2026-03-12 22:41:34,535 - DEBUG - Response sent
+2026-03-13 17:27:34,361 - DEBUG - Initializing server 'AirSimDroneController'
+2026-03-13 17:27:34,361 - DEBUG - Registering handler for ListToolsRequest
+2026-03-13 17:27:34,361 - DEBUG - Registering handler for CallToolRequest
+2026-03-13 17:27:34,361 - DEBUG - Registering handler for ListResourcesRequest
+2026-03-13 17:27:34,361 - DEBUG - Registering handler for ReadResourceRequest
+2026-03-13 17:27:34,361 - DEBUG - Registering handler for PromptListRequest
+2026-03-13 17:27:34,362 - DEBUG - Registering handler for GetPromptRequest
+2026-03-13 17:27:34,362 - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-03-13 17:27:34,368 - INFO - Initializing DroneController...
+2026-03-13 17:27:34,369 - INFO - Connecting to AirSim MultirotorClient in dedicated thread...
+2026-03-13 17:27:34,369 - DEBUG - Using proactor: IocpProactor
+2026-03-13 17:27:34,372 - INFO - Confirming connection...
+2026-03-13 17:27:38,465 - ERROR - Failed to initialize AirSim client: Retry connection over the limit
+2026-03-13 17:27:38,482 - DEBUG - Using proactor: IocpProactor
+2026-03-13 17:27:38,498 - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-03-13 17:35:37,876 - DEBUG - Initializing server 'AirSimDroneController'
+2026-03-13 17:35:37,876 - DEBUG - Registering handler for ListToolsRequest
+2026-03-13 17:35:37,876 - DEBUG - Registering handler for CallToolRequest
+2026-03-13 17:35:37,876 - DEBUG - Registering handler for ListResourcesRequest
+2026-03-13 17:35:37,876 - DEBUG - Registering handler for ReadResourceRequest
+2026-03-13 17:35:37,876 - DEBUG - Registering handler for PromptListRequest
+2026-03-13 17:35:37,876 - DEBUG - Registering handler for GetPromptRequest
+2026-03-13 17:35:37,877 - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-03-13 17:35:37,882 - INFO - Initializing DroneController...
+2026-03-13 17:35:37,883 - INFO - Connecting to AirSim MultirotorClient in dedicated thread...
+2026-03-13 17:35:37,884 - DEBUG - Using proactor: IocpProactor
+2026-03-13 17:35:37,886 - INFO - Confirming connection...
+2026-03-13 17:35:41,967 - ERROR - Failed to initialize AirSim client: Retry connection over the limit
+2026-03-13 17:35:41,981 - DEBUG - Using proactor: IocpProactor
+2026-03-13 17:35:41,989 - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-03-13 17:35:42,006 - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000197665E5990>
+2026-03-13 17:35:42,006 - INFO - Processing request of type ListToolsRequest
+2026-03-13 17:35:42,006 - DEBUG - Dispatching request of type ListToolsRequest
+2026-03-13 17:35:42,007 - DEBUG - Response sent
+2026-03-13 17:35:42,007 - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x00000197665E4E20>
+2026-03-13 17:35:42,007 - INFO - Processing request of type ListToolsRequest
+2026-03-13 17:35:42,008 - DEBUG - Dispatching request of type ListToolsRequest
+2026-03-13 17:35:42,009 - DEBUG - Response sent
+2026-03-13 17:44:44,486 - DEBUG - Initializing server 'AirSimDroneController'
+2026-03-13 17:44:44,486 - DEBUG - Registering handler for ListToolsRequest
+2026-03-13 17:44:44,487 - DEBUG - Registering handler for CallToolRequest
+2026-03-13 17:44:44,487 - DEBUG - Registering handler for ListResourcesRequest
+2026-03-13 17:44:44,487 - DEBUG - Registering handler for ReadResourceRequest
+2026-03-13 17:44:44,487 - DEBUG - Registering handler for PromptListRequest
+2026-03-13 17:44:44,488 - DEBUG - Registering handler for GetPromptRequest
+2026-03-13 17:44:44,488 - DEBUG - Registering handler for ListResourceTemplatesRequest
+2026-03-13 17:44:44,493 - INFO - Initializing DroneController...
+2026-03-13 17:44:44,494 - INFO - Connecting to AirSim MultirotorClient in dedicated thread...
+2026-03-13 17:44:44,494 - DEBUG - Using proactor: IocpProactor
+2026-03-13 17:44:44,497 - INFO - Confirming connection...
+2026-03-13 17:44:48,588 - ERROR - Failed to initialize AirSim client: Retry connection over the limit
+2026-03-13 17:44:48,602 - DEBUG - Using proactor: IocpProactor
+2026-03-13 17:44:48,611 - DEBUG - Received message: root=InitializedNotification(method='notifications/initialized', params=None, jsonrpc='2.0')
+2026-03-13 17:44:48,624 - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001EBF37998D0>
+2026-03-13 17:44:48,624 - INFO - Processing request of type ListToolsRequest
+2026-03-13 17:44:48,624 - DEBUG - Dispatching request of type ListToolsRequest
+2026-03-13 17:44:48,625 - DEBUG - Response sent
+2026-03-13 17:44:52,669 - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001EBF37997E0>
+2026-03-13 17:44:52,669 - INFO - Processing request of type ListToolsRequest
+2026-03-13 17:44:52,669 - DEBUG - Dispatching request of type ListToolsRequest
+2026-03-13 17:44:52,669 - DEBUG - Response sent
+2026-03-13 17:44:52,867 - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001EBF3798E80>
+2026-03-13 17:44:52,868 - INFO - Processing request of type ListToolsRequest
+2026-03-13 17:44:52,868 - DEBUG - Dispatching request of type ListToolsRequest
+2026-03-13 17:44:52,868 - DEBUG - Response sent
+2026-03-13 17:44:56,743 - DEBUG - Received message: <mcp.shared.session.RequestResponder object at 0x000001EBF37997B0>
+2026-03-13 17:44:56,744 - INFO - Processing request of type ListToolsRequest
+2026-03-13 17:44:56,744 - DEBUG - Dispatching request of type ListToolsRequest
+2026-03-13 17:44:56,744 - DEBUG - Response sent
