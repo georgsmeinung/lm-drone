@@ -2,7 +2,7 @@
 ---
 * Los modelos Qwen no están interpretando bien los comandos y el Phi 4 no es eficiente. Probando con modelo: (**nvidia/nemotron-3-nano-4b
 **)[https://lmstudio.ai/models/nvidia/nemotron-3-nano-4b]
-* Determinada plataforma para calibración: Drone con nvidia/nemotron-3-nano-4b.
+* Determinada plataforma para calibración: Drone con nvidia/nemotron-3-nano-4b. Funciona mejor sin el modo thinking, para no llenar la ventana de contexto muy rápidamente.
 
 **2026-0313**
 ---
