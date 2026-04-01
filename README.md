@@ -85,7 +85,7 @@ Ejecución de la lógica de vuelo y percepción.
 ```
 
 2. **Iniciar la Simulación (AirSim):**
-* Descargar el proyecto `CityParkSim` con el plugin de AirSom compilado. El proyecto es muy pesado para subir a GitHub por lo que está en [Google Drive](https://drive.google.com/drive/folders/1ImTngQAt0gAlrXNOfOYs5csRWQt3IhS_?usp=sharing).
+* Descargar el proyecto `CityParkSim` con el plugin de AirSim compilado. El proyecto es muy pesado para subir a GitHub por lo que está en [Google Drive](https://drive.google.com/drive/folders/1ImTngQAt0gAlrXNOfOYs5csRWQt3IhS_?usp=sharing).
 * Lanzar el entorno de virtual desde Unreal Engine editor en modo play.
 
 3. **Probar conexión al Drone mediante:**
