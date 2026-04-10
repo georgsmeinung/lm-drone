@@ -1,2 +1,3 @@
 airsim-mcp/mcp_drone.log
-callibration_flight/telemetry_*.csv
+# Archivos de telemetría de vuelo de calibración
+# callibration_flight/telemetry_*.csv
