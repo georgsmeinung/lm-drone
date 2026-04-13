@@ -1,0 +1,44 @@
+{
+  "droneID": "drone1",
+  "aircraftLongitude": -4.529033399269809,
+  "aircraftLatitude": 55.788176874593,
+  "aircraftAltitude": 30,
+  "distanceToHome": 0,
+  "homeAltitude": 0,
+  "homeLatitude": 4.58,
+  "homeLongitude": 4.58,
+  "gimbal_PITCH": 9.089094288626606,
+  "gimbal_YAW": -75.7031585357115,
+  "gimbal_ROLL": 0.0,
+  "headingDroneDegress": 275.9207888769844,
+  "isInMission": true,
+  "missionPlan": [
+    {
+      "latitude": 55.7882,
+      "longitude": -4.52943,
+      "altitude": 30
+    },
+    {
+      "latitude": 55.7882,
+      "longitude": -4.53213,
+      "altitude": 30
+    },
+    {
+      "latitude": 55.78948,
+      "longitude": -4.53213,
+      "altitude": 30
+    },
+    {
+      "latitude": 55.78948,
+      "longitude": -4.52943,
+      "altitude": 30
+    },
+    {
+      "latitude": 55.7882,
+      "longitude": -4.52943,
+      "altitude": 30
+    }
+  ],
+  "currentWaypointMissionPlanner": 0,
+  "batteryPercentage": 43.549999999999955
+}
