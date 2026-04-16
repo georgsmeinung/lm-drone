@@ -2,6 +2,10 @@ TODO
 * Generar métricas sugeridas inicialmente
 * Considerar simular el vuelo de 5 waypoints recogidos de drones reales
 
+**2026-0415**
+---
+* Generado una versión más avanzada de control por teclado
+* Cambiando modo de control por teclado a posición relativa a la orientación del drone
 
 **2026-0413**
 ---
