@@ -40,7 +40,8 @@ Configuraremos el modelo **Gemma 4 E4B** para cargarlo en la zona de memoria de 
 
 1. **Descarga y Carga:**
 ```bash
-lms load gemma-4-e4b --quantization q8_0 --gpu max
+lms get google/gemma-4-e4b@q8_0
+lms load gemma-4-e4b --gpu max
 ```
 
 *Nota: El parámetro `--gpu max` fuerza al motor a usar los 80 EUs de la Iris Xe vía Vulkan.*
@@ -53,7 +54,7 @@ Para que la workstation de Windows 11 pueda conectarse, el servidor debe escucha
 1. **Arranque del Servidor:**
 
 ```bash
-lms server start --host 0.0.0.0 --port 1234
+lms server start --bind 0.0.0.0 --port 1234
 ```
 
 2.  **Identificación de IP:**
@@ -61,6 +62,14 @@ lms server start --host 0.0.0.0 --port 1234
 hostname -I | awk '{print $1}'
 ```
 *(Ejemplo  IP: `192.168.1.15`)*.
+
+3.  **Prueba de conexioón:**
+```bash
+lms load gemma-4-e4b --gpu max --context-length 32768
+lms ls
+
+```
+
 
 ### E. Automatización con `systemd` (Persistencia)
 Para que el servidor se inicie tras un reinicio, se crea un archivo de unidad:
@@ -75,7 +84,7 @@ Para que el servidor se inicie tras un reinicio, se crea un archivo de unidad:
     [Service]
     ExecStart=/usr/local/bin/lms server start --host 0.0.0.0 --port 1234
     Restart=always
-    User=tu_usuario
+    User=usuario
     Environment=DISPLAY=:0
 
     [Install]
