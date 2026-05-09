@@ -2,111 +2,24 @@
 * Generar métricas sugeridas inicialmente
 * Considerar simular el vuelo de 5 waypoints recogidos de drones reales
 
-**2026-0506**
+**2026-0508**
 ---
-Implementando servidor de inferencia en `Ubuntu 26.04 LTS`. Tareas implementar el servidor de inferencia ThinkPad T15 Gen 2 con **Kubuntu**.
+* Probando modelos Edge en la misma PC que corre Unreal Engine con GPU RTX 5060. Considerando:
+  - [LFM2.5‑VL-450M](https://huggingface.co/LiquidAI/LFM2.5-VL-450M): Modelo edge de LiquiAI que soporta visión para el procesado de imágenes del drone. No tiene sentido usar esto sólo, un preprocesamiento con YOLO puede ayudar con una segmentación previa con una CNN más rápida. Este modelo es para la navegación y decisiones en tiempo real.
+  - [LiquidAI/LFM2.5-1.2B-Thinking](https://huggingface.co/LiquidAI/LFM2.5-1.2B-Thinking):  modelo de 1.200 millones de parámetros que integra un proceso de razonamiento nativo (CoT), permitiéndo superar en lógica y programación a modelos siete veces más grandes. Su mayor ventaja es la eficiencia extrema, ya que requiere menos de 1 GB de RAM en su versión optimizada, lo que facilita la ejecución de agentes autónomos y tareas de código complejas directamente en dispositivos personales sin latencia ni dependencia de la nube. Este modelo es para planificación de la misión de vuelo. Un proceso de razonamiento nativo (o Chain-of-Thought - CoT) es una técnica donde el modelo de IA no responde de inmediato, sino que "piensa en voz alta" internamente antes de dar la respuesta final. Respuesta muy fluida: 224 TPS
+  - [google/gemma-4-E4B](https://huggingface.co/google/gemma-4-E4B) con cuantizacion Q4. Implementación de KV Cache optimizada para una ventana de contexto de 32k tokens. Respuesta de 268 TPS
+  - [liquid/lfm2-700m](https://huggingface.co/LiquidAI/LFM2-700M-GGUF) con cuantizacion Q4 y 64K de contexto. Respuesta de  344 TPS.
 
-### A. Optimización del Entorno Linux (Kubuntu)
-Antes de instalar el software de IA local (LM Studio Headless), es necesario asegurar que el kernel y los drivers de Intel estén listos para la carga computacional.
+* Prueba de concepto con **LiquidAI/LFM2.5-1.2B** de control de drone, todo en memoria.
 
-1. **Actualización de Drivers Mesa:** a la versión más reciente para el soporte de Vulkan en la iGPU Iris Xe.
-```bash
-sudo add-apt-repository ppa:kisak/kisak-mesa
-sudo apt update && sudo apt upgrade -y
-sudo apt install mesa-vulkan-drivers vulkan-tools
-```
-
-2. **Gestión de Energía:** Para evitar el *throttling* térmico en el chasis delgado de la T15:
-```bash
-sudo apt install power-profiles-daemon
-powerprofilesctl set performance
-```
-
-### B. Instalación de `llmster` (Headless Daemon)
-Se usa el CLI de LM Studio para gestionar el servicio de inferencia.
-
-1. **Instalación del CLI:**
-```bash
-curl -fsSL https://lmstudio.ai/install.sh | bash
-```
-
-2. **Inicialización del Daemon:**
-```bash
-lms daemon up
-```
-
-### C. Configuración y Carga del Modelo
-Configuraremos el modelo **Gemma 4 E4B** para cargarlo en la zona de memoria de alto rendimiento del RAM compartida de la iGPU
-
-1. **Descarga y Carga:**
-```bash
-lms get google/gemma-4-e4b@q8_0
-lms load gemma-4-e4b --gpu max
-```
-
-*Nota: El parámetro `--gpu max` fuerza al motor a usar los 80 EUs de la Iris Xe vía Vulkan.*
-
-2. **Verificación de Memoria:** Dado que el sistema tiene 40 GB, el modelo Q8_0 (~5 GB) se alojará automáticamente en los primeros 16 GB (Dual-Channel), garantizando la máxima tasa de transferencia.
-
-### D. Exposición del Servidor a la Red Local (LAN)
-Para que la workstation de Windows 11 pueda conectarse, el servidor debe escuchar en todas las interfaces de red disponibles.
-
-1. **Arranque del Servidor:**
-
-```bash
-lms server start --bind 0.0.0.0 --port 1234
-```
-
-2.  **Identificación de IP:**
-```bash
-hostname -I | awk '{print $1}'
-```
-*(Ejemplo  IP: `192.168.1.15`)*.
-
-3.  **Prueba de conexioón:**
-```bash
-lms load gemma-4-e4b --gpu max --context-length 32768
-lms ls
-
-```
-
-
-### E. Automatización con `systemd` (Persistencia)
-Para que el servidor se inicie tras un reinicio, se crea un archivo de unidad:
-
-1.  **Crear el archivo:** `sudo nano /etc/systemd/system/llmster.service`
-2.  **Contenido:**
-    ```ini
-    [Unit]
-    Description=Llmster Headless Inference Server
-    After=network.target
-
-    [Service]
-    ExecStart=/usr/local/bin/lms server start --host 0.0.0.0 --port 1234
-    Restart=always
-    User=usuario
-    Environment=DISPLAY=:0
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-3.  **Habilitar:**
-    ```bash
-    sudo systemctl enable llmster
-    sudo systemctl start llmster
-    ```
-
-### F. Configuración del Cliente (Windows 11)
-Desde la estación de trabajo principal:
-
-1.  **Web UI:** En la configuración de Open WebUI o LibreChat, apunte el endpoint a: `[http://192.168.1.15:1234/v1](http://192.168.1.15:1234/v1)`.
-2.  **Desarrollo (OpenCode):** En los ajustes de la extensión, reemplace `localhost` por la IP de la ThinkPad.
-
-### Consideraciones Finales de Mantenimiento
-*   **Apertura de Puertos:** revisar si el firewall de Kubuntu (`ufw`) está activo, permita el tráfico:
-    `sudo ufw allow 1234/tcp`
-*   **Monitoreo Térmico:** Supervisar la temperatura durante las primeras inferencias largas con `watch -n 1 nvidia-smi` (si se usa capas compatibles) o la herramienta nativa `intel_gpu_top` (paquete `intel-gpu-tools`).
-
+**2026-0507**
+---
+* Implementando servidor de inferencia en `Ubuntu 26.04 LTS`. Tareas implementar el servidor de inferencia ThinkPad T15 Gen 2 con **Kubuntu**.
+* Pruebas con [**google/gemma-4-E4B**](https://huggingface.co/google/gemma-4-E4B) no dan buen rendimiento: menos 7 TPS.
+* Considerando modelos Edge para trabajo agéntico, pruebas con:
+  - [LiquidAI/LFM2-350M-GGUF](https://huggingface.co/LiquidAI/LFM2-350M-GGUF): LFM2 es una nueva generación de modelos híbridos desarrollados por Liquid AI, diseñados específicamente para IA en el borde y despliegue en dispositivos. Establece un nuevo estándar en términos de calidad, velocidad y eficiencia de memoria. Muy buena velocidad: 60 TPS.
+  - [LiquidAI/LFM2-1.2B-GGUF](https://huggingface.co/LiquidAI/LFM2-1.2B-GGUF): LFM2-1.2B-Tool: Un modelo de 1.200 millones de parámetros diseñado específicamente para la llamada de funciones (function calling) y flujos de trabajo de agentes. Según los reportes, compite en ejecución de tareas con modelos mucho más grandes, como Qwen-8B y Gemma-12B. Menos velocidad pero todavia aceptable: 45 TPS.
+  
 
 **2026-0506**
 ---
