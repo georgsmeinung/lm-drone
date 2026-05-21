@@ -2,6 +2,14 @@
 * Generar métricas sugeridas inicialmente
 * Considerar simular el vuelo de 5 waypoints recogidos de drones reales
 
+**2026-0521**
+---
+* Generando nuevo ambiente de pruebas con [Downtown West Modular Pack](https://fab.com/s/be5ea9a2cae4) para ambiente semi urbano con más realismo y configurando Cosys Airsim en el nuevo proyecto. Pruebas OK.
+
+**2026-0509**
+---
+* Generando nuevo ambiente de pruebas con [Dynamic City Creator](https://alidocs.dingtalk.com/i/nodes/jb9Y4gmKWrx9eo4dCqAq361yJGXn6lpz) y configurando Cosys Airsim en el nuevo proyecto. El Plugin de Airsim no detecta la red de colisiòn de la ciudad generada paramétricamente.
+
 **2026-0508**
 ---
 * Probando modelos Edge en la misma PC que corre Unreal Engine con GPU RTX 5060. Considerando:
