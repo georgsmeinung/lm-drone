@@ -109,4 +109,4 @@ Este trabajo ha sido desarrollado como parte de la Maestría en Ciencia de Datos
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE.md](LICENSE.md) para más detalles.
+Este proyecto está bajo la [Licencia MIT](LICENSE.md).
