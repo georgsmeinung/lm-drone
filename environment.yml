@@ -1,4 +1,4 @@
-name: droneenv
+name: airsimenv
 channels:
   - conda-forge
   - defaults
@@ -113,4 +113,4 @@ dependencies:
       - uc-micro-py==2.0.0
       - uv==0.9.22
       - uvicorn==0.40.0
-prefix: D:\TesisMCD\lm-drone\droneenv
+prefix: D:\TesisMCD\airsimenv
