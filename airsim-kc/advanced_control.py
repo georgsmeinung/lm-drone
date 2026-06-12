@@ -5,6 +5,7 @@ import string
 import time
 from typing import Dict, List, Optional
 from datetime import datetime
+from dotenv import load_dotenv
 
 # Enable UTF-8 output on Windows
 if sys.platform.startswith("win"):
@@ -172,7 +173,12 @@ class AdvancedTerminalController:
         self.DriveType = drive_type
         self.client = client
         if client is None:
-            self.client = airsim.MultirotorClient()
+            load_dotenv()
+            airsim_ip = os.getenv("AIRSIM_IP", "")
+            if airsim_ip:
+                self.client = airsim.MultirotorClient(ip=airsim_ip)
+            else:
+                self.client = airsim.MultirotorClient()
         self.confirm_connection()
         # Segmentation setup
         self.setup_segmentation_colors()

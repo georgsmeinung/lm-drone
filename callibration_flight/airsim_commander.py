@@ -4,6 +4,7 @@ import subprocess
 import os
 import sys
 import re
+from dotenv import load_dotenv
 
 def main():
     # Iniciar airsim_logger.py como un proceso separado
@@ -19,7 +20,12 @@ def main():
     time.sleep(2)
 
     # Conectarse a AirSim y preparar el dron para recibir comandos
-    client = airsim.MultirotorClient()
+    load_dotenv()
+    airsim_ip = os.getenv("AIRSIM_IP", "")
+    if airsim_ip:
+        client = airsim.MultirotorClient(ip=airsim_ip)
+    else:
+        client = airsim.MultirotorClient()
     client.confirmConnection()
     client.enableApiControl(True)
     client.armDisarm(True)

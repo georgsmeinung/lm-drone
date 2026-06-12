@@ -4,6 +4,8 @@ import time
 import csv
 import math
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
 def quaternion_to_euler(q):
     """Convert quaternion to Euler angles (roll, pitch, yaw)"""
@@ -30,7 +32,12 @@ def quaternion_to_euler(q):
     return roll, pitch, yaw
 
 INTERVAL = 0.1          # 10 Hz
-client = airsim.MultirotorClient()   # defaults to localhost:41451
+load_dotenv()
+airsim_ip = os.getenv("AIRSIM_IP", "")
+if airsim_ip:
+    client = airsim.MultirotorClient(ip=airsim_ip)
+else:
+    client = airsim.MultirotorClient()   # defaults to localhost:41451
 client.confirmConnection()
 
 # No enableApiControl() here!
