@@ -3,6 +3,7 @@ import logging
 import sys
 import os
 import datetime
+from dotenv import load_dotenv
 import numpy as np
 import cosysairsim as airsim
 from mcp.server.fastmcp import FastMCP
@@ -99,7 +100,12 @@ class DroneController:
     def _init_drone_sync(self):
         try:
             logger.info("Connecting to AirSim MultirotorClient in dedicated thread...")
-            self.client = airsim.MultirotorClient()
+            load_dotenv()
+            airsim_ip = os.getenv("AIRSIM_IP", "")
+            if airsim_ip:
+                self.client = airsim.MultirotorClient(ip=airsim_ip)
+            else:
+                self.client = airsim.MultirotorClient()
             self.confirm_connection()
             logger.info("DroneController initialization complete.")
         except Exception as e:
@@ -313,4 +319,3 @@ def drone_reset() -> str:
 if __name__ == '__main__':
     # Start the FastMCP server with stdio transport by default
     mcp.run(transport='stdio')
-

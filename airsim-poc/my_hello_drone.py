@@ -5,9 +5,15 @@ import os
 import tempfile
 import pprint
 import cv2
+from dotenv import load_dotenv
 
 # connect to the AirSim simulator
-client = airsim.MultirotorClient()
+load_dotenv()
+airsim_ip = os.getenv("AIRSIM_IP", "")
+if airsim_ip:
+    client = airsim.MultirotorClient(ip=airsim_ip)
+else:
+    client = airsim.MultirotorClient()
 client.confirmConnection()
 client.enableApiControl(True)
 

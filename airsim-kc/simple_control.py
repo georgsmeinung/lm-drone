@@ -2,6 +2,7 @@ import os
 import pprint
 import string
 
+from dotenv import load_dotenv
 import cosysairsim as airsim
 import numpy as np
 from pynput.keyboard import KeyCode
@@ -52,7 +53,12 @@ class SimpleTerminalController:
         self.DriveType = drive_type
         self.client = client
         if client is None:
-            self.client = airsim.MultirotorClient()
+            load_dotenv()
+            airsim_ip = os.getenv("AIRSIM_IP", "")
+            if airsim_ip:
+                self.client = airsim.MultirotorClient(ip=airsim_ip)
+            else:
+                self.client = airsim.MultirotorClient()
         self.confirm_connection()
         # Segmentation setup
         self.setup_segmentation_colors()

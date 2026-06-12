@@ -1,3 +1,24 @@
+**2026-0611**
+---
+* Configuración de servidor de inferencia en Mac mini con LMStudio:
+```
+      Model Name: Mac mini
+      Model Identifier: Mac16,10
+      Model Number: MU9D3LL/A
+      Chip: Apple M4
+      Total Number of Cores: 10 (4 Performance and 6 Efficiency)
+      Memory: 16 GB
+      System Firmware Version: 18000.120.36
+      OS Loader Version: 18000.120.36
+      Serial Number (system): LP62N7G104
+      Hardware UUID: 8FB00CB3-5F1C-52E8-A6D2-4C211705F123
+      Provisioning UDID: 00008132-001159DC3E45401C
+      Activation Lock Status: Enabled
+```
+* Analizando modelos por debajo del 1B parámetros para inferencia razonablemente rápida
+* Prueba de red por Ethernet entre los dos sistemas
+* Prueba de fluidez de Unreal Engine sobre Remote Desktop Protocol. Funciona razonablemente. EL UE funciona mejor cuando se baja el viewport virtual
+
 **2026-0610**
 ---
 * Generación de telemetría de los vuelos simulados con las mismas trayectorias que los reales, a la misma altura y la misma velocidad. 
