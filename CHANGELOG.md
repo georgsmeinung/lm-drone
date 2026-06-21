@@ -1,3 +1,7 @@
+**2026-0621**
+---
+* Análisis de [Variabilidad de Telmetría de Vuelos Simulados vs Drones Reales](https://github.com/georgsmeinung/lm-drone/blob/main/callibration_flight/telemetry_analysis.ipynb) con nueva telemetría sintética generada el 2026-060, generando reporte en notebook de Jupyter con estadísticas descriptivas y pruebas estadísiticas para determinar si existen diferencias significativas entre las distribuciones de los datos de telemetría simulados y reales. 
+
 **2026-0619**
 ---
 * Prueba de conexión desde server con servicio LLM a server con servicio AirSim y simulación
