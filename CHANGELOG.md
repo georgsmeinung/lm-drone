@@ -48,6 +48,9 @@
 **2026-0611**
 ---
 * Configuración de servidor de inferencia en Mac mini con LMStudio:
+
+<img src="informe/mac_mini_m4.jpg" width="50%"/>
+
 ```
       Model Name: Mac mini
       Model Identifier: Mac16,10
@@ -55,16 +58,25 @@
       Chip: Apple M4
       Total Number of Cores: 10 (4 Performance and 6 Efficiency)
       Memory: 16 GB
-      System Firmware Version: 18000.120.36
-      OS Loader Version: 18000.120.36
-      Serial Number (system): LP62N7G104
-      Hardware UUID: 8FB00CB3-5F1C-52E8-A6D2-4C211705F123
-      Provisioning UDID: 00008132-001159DC3E45401C
-      Activation Lock Status: Enabled
 ```
 * Analizando modelos por debajo del 1B parámetros para inferencia razonablemente rápida
 * Prueba de red por Ethernet entre los dos sistemas
 * Prueba de fluidez de Unreal Engine sobre Remote Desktop Protocol. Funciona razonablemente. EL UE funciona mejor cuando se baja el viewport virtual
+* La aceleración de la RTX 5060 no tiene efecto sobre el Remote Desktop. Se determina usar como estación de renderizado PC con la GPU
+
+<img src="informe/RTX-5060-Ti-8Gb-Msi.jpeg" width="50%"/>
+
+```
+      Model Name: NVIDIA GeForce RTX 5060
+      Arquitectura: NVIDIA Blackwell (Proceso de fabricación de 5 nm).
+      Memoria VRAM: 8 GB GDDR7.
+      Interfaz de Memoria: 128-bit.
+      Velocidad de Memoria: 28 Gbps.
+      Núcleos CUDA: 3840.
+      Tecnologías Adicionales: Compatibilidad con DLSS 4 (con generación de fotogramas), núcleos Ray Tracing de 4ª generación y núcleos Tensor de 5ª generación
+```
+
+
 
 **2026-0610**
 ---
